@@ -1,8 +1,8 @@
 import { Route, Routes } from 'react-router-dom'
-import './App.css'
 import { Comanda } from './pages/comanda'
 import { ListaDeComandas } from './pages/listaDeComandas'
 import { Produtos } from './pages/produtos'
+import "./App.css"
 
 function App() {
 
