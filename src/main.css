@@ -55,4 +55,5 @@ body {
   --dark: #032541;
   --light: white;
   font-family: Ubuntu;
+  background-color: rgb(250, 216, 143);
 }
