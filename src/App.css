@@ -16,6 +16,7 @@
 }
 
 .main {
+  position: relative;
   max-width: 700px;
   height: calc(100vh - 60px);
   background-color: whitesmoke;
@@ -36,6 +37,21 @@
   width: 20px;
   height: 100%;
   border: red solid;
+}
+
+.add {
+  position: absolute;
+  top: 75vh;
+  right: 30px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--dark);
+  font-size: 25px;
+  background-color: var(--contrast);
 }
 
 

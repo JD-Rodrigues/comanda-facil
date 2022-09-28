@@ -52,8 +52,9 @@ html {
 
 
 body {
-  --dark: #032541;
+  --dark: #2b4052;
   --light: white;
+  --contrast: #fad88f;
   font-family: Ubuntu;
-  background-color: rgb(250, 216, 143);
+  background-color: var(--contrast);
 }

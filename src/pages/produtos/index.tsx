@@ -14,7 +14,9 @@ export const Produtos = () => {
                     </ul>                    
                 </nav>                
             </header>
-            <main className="main"></main>
+            <main className="main">
+                <div className="add"><div>+</div></div>
+            </main>
         </div>
     )
 }

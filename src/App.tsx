@@ -4,8 +4,18 @@ import { ListaDeComandas } from './pages/listaDeComandas'
 import { Produtos } from './pages/produtos'
 import "./App.css"
 import { FecharComanda } from './pages/fecharComanda'
+import { useEffect, useState } from 'react'
+import { salvaDados } from './services'
 
 function App() {
+
+  const [comandas, setComandas] = useState([])
+  const [produtos, setProdutos] = useState([])
+
+  useEffect(() => {
+    salvaDados("comandas", comandas)
+    salvaDados("produtos", produtos)
+  },[])
 
   return (
     <div>
