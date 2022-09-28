@@ -1,0 +1,7 @@
+{
+  "rewrites": [
+    { "source": "/produtos", "destination": "/index.html" },
+    { "source": "/comanda", "destination": "/index.html" },
+    { "source": "/fechar-comanda", "destination": "/index.html" }
+  ]
+}
