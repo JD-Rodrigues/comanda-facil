@@ -1,6 +1,9 @@
+import { useState } from "react"
 import { Link } from "react-router-dom"
+import { Modal } from "../../components/modal"
 
 export const ListaDeComandas = () => {
+    const [novaComanda, setNovaComanda] = useState(false)
     return(
         <div className="container">
             <header className="header">
@@ -14,8 +17,17 @@ export const ListaDeComandas = () => {
                 </nav>                
             </header>
             <main className="main">
-                <div className="add"><div>+</div></div>
+                <div onClick={()=>setNovaComanda(true)} className="add">
+                    <div>+</div>
+                </div>
             </main>
+            
+            <Modal toggle={novaComanda} nomeDoModal="Nome da comanda:">
+                <input type="text"/>
+                <button onClick={()=>setNovaComanda(false)}>Cancelar</button>
+                <button>Adicionar</button>
+            </Modal>
+            
         </div>
     )
 }

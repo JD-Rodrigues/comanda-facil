@@ -58,3 +58,7 @@ body {
   font-family: Ubuntu;
   background-color: var(--contrast);
 }
+
+dialog {
+  position: absolute;
+}

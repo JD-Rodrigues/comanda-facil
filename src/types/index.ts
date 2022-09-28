@@ -1,3 +1,6 @@
+import React from "react";
+import { JsxElement } from "typescript";
+
 interface IProduto {
   nome: string;
   valorUnit: number;
@@ -14,6 +17,12 @@ interface IComanda {
   consumo: IProdutoConsumido[]
 }
 
+interface IModalProps {
+  nomeDoModal: string;
+  children: React.ReactNode;
+  toggle: boolean
+}
+
 type TDadosParaLocalStorage = IProduto[] | IComanda[]
 
-export type {IProduto, IProdutoConsumido, IComanda, TDadosParaLocalStorage}
+export type {IProduto, IProdutoConsumido, IComanda, TDadosParaLocalStorage, IModalProps}
