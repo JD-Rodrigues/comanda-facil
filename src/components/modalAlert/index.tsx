@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { IModalProps} from "../../types"
 import styles from "./styles.module.css"
 
-export const Modal = ({nomeDoModal, children, toggle}:IModalProps) => {
+export const ModalAlert = ({nomeDoModal, children, toggle}:IModalProps) => {
     
     useEffect(()=>{
         const dialog = document.querySelector('dialog') as HTMLDialogElement

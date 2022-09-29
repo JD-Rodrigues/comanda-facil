@@ -5,25 +5,37 @@ import { ListaDeProdutos } from './pages/ListaDeProdutos'
 import "./App.css"
 import { FecharComanda } from './pages/fecharComanda'
 import { useEffect, useState } from 'react'
-import { salvaDados } from './services'
+import { carregarDados, salvarDados } from './services'
+import { IComanda, IProduto } from './types'
 
 function App() {
 
-  const [comandas, setComandas] = useState([])
-  const [produtos, setProdutos] = useState([])
+  const [comandas, setComandas] = useState<IComanda[] | null>(null)
+  const [produtos, setProdutos] = useState<IProduto[] | null>(null)
 
   useEffect(() => {
-    salvaDados("comandas", comandas)
-    salvaDados("produtos", produtos)
+    const comandasDoStorage = carregarDados("comandas")
+    const produtosDoStorage = carregarDados("produtos")
+
+    comandasDoStorage && setComandas(comandasDoStorage)
+    produtosDoStorage && setProdutos(produtosDoStorage)
   },[])
+
+  useEffect(()=>{
+    comandas && salvarDados("comandas", comandas)
+  },[comandas])
+
+  useEffect(()=>{
+    produtos && salvarDados("produtos", produtos)
+  },[produtos])
 
   return (
     <div>
       <Routes>
-        <Route path='/' element={<ListaDeComandas />} />
+        <Route path='/' element={<ListaDeComandas comandas={comandas} setComandas={setComandas} />} />
         <Route path='comanda' element={<Comanda />} />
         <Route path='/fechar-comanda' element={<FecharComanda />} />
-        <Route path='produtos' element={<ListaDeProdutos />} />        
+        <Route path='produtos' element={<ListaDeProdutos produtos={produtos} setProdutos={setProdutos} />} />        
       </Routes>
       <footer className="footer container">
           <p>© 2022 - Desenvolvido por 

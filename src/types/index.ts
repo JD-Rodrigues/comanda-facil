@@ -13,7 +13,7 @@ interface IProdutoConsumido {
 }
 
 interface IComanda {
-  name: string;
+  nome: string;
   consumo: IProdutoConsumido[]
 }
 
@@ -23,6 +23,22 @@ interface IModalProps {
   toggle: boolean
 }
 
+interface IListaDeComandasProps {
+  comandas: IComanda[] | null;
+  setComandas: React.Dispatch<React.SetStateAction<IComanda[] | null>>
+}
+
+interface IListaDeProdutosProps {
+  produtos: IProduto[] | null;
+  setProdutos: React.Dispatch<React.SetStateAction<IProduto[] | null>>
+}
+
+interface ICardComandaProps {
+  nomeDaComanda: string;
+  soma: number;
+}
+
+
 type TDadosParaLocalStorage = IProduto[] | IComanda[]
 
-export type {IProduto, IProdutoConsumido, IComanda, TDadosParaLocalStorage, IModalProps}
+export type {IProduto, IProdutoConsumido, IComanda, TDadosParaLocalStorage, IModalProps, IListaDeComandasProps, IListaDeProdutosProps, ICardComandaProps}
