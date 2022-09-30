@@ -36,7 +36,7 @@ function App() {
           <Route path='/' element={<ListaDeComandas comandas={comandas} setComandas={setComandas} setComandaSelecionada={setComandaSelecionada}/>} />
           <Route path='comanda' element={<Comanda comandaSelecionada={comandaSelecionada} />} />
           <Route path='/fechar-comanda' element={<FecharComanda />} />
-          <Route path='produtos' element={<ListaDeProdutos produtos={produtos} setProdutos={setProdutos} />} />        
+          <Route path='produtos' element={<ListaDeProdutos produtos={produtos} setProdutos={setProdutos} comandaSelecionada={comandaSelecionada} />} />        
         </Routes>
       <footer className="footer container">
           <p>© 2022 - Desenvolvido por 

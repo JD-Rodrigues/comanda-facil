@@ -14,7 +14,7 @@ interface IProdutoConsumido {
 
 interface IComanda {
   nome: string;
-  consumo: IProdutoConsumido[]
+  consumo: IProdutoConsumido[] | null
 }
 
 interface IModalProps {
@@ -36,20 +36,24 @@ interface IComandaProps {
 interface IListaDeProdutosProps {
   produtos: IProduto[] | null;
   setProdutos: React.Dispatch<React.SetStateAction<IProduto[] | null>>
+  comandaSelecionada: string
 }
 
 interface ICardComandaProps {
   nomeDaComanda: string;
-  soma: number;
+  soma: number | null;
   setComandaSelecionada: React.Dispatch<React.SetStateAction<string>>
 }
 
 interface ICardProdutoProps{
   nome:string;
   valor:number;
+  setProdutoSelecionado: React.Dispatch<React.SetStateAction<string | null>>
 }
 
 
 type TDadosParaLocalStorage = IProduto[] | IComanda[]
 
-export type {IProduto, IProdutoConsumido, IComanda, TDadosParaLocalStorage, IModalProps, IListaDeComandasProps, IListaDeProdutosProps, ICardComandaProps, ICardProdutoProps, IComandaProps}
+type TArrayParaChecagemDeItensRepetidos = IComanda[] | IProduto[] | IProdutoConsumido[] |null
+
+export type {IProduto, IProdutoConsumido, IComanda, TDadosParaLocalStorage, IModalProps, IListaDeComandasProps, IListaDeProdutosProps, ICardComandaProps, ICardProdutoProps, IComandaProps, TArrayParaChecagemDeItensRepetidos}

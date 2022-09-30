@@ -1,5 +1,5 @@
 import React from "react"
-import { IComanda, IProduto, TDadosParaLocalStorage } from "../types"
+import { IComanda, IProduto, IProdutoConsumido, TArrayParaChecagemDeItensRepetidos, TDadosParaLocalStorage } from "../types"
 
 const salvarDados = (itemName:string, dados:TDadosParaLocalStorage) => {
   localStorage.setItem(itemName, JSON.stringify(dados))
@@ -41,12 +41,12 @@ function mascaraDePreco(value:string) {
   }
 }
 
-const checarItemRepetido = (nomeDoItem:string, array:string) => {
-  const listaDeItens = carregarDados(array)  
+const checarItemRepetido = (nomeDoItem:string, array:TArrayParaChecagemDeItensRepetidos) => {
+    
 
   let resultado = false
 
-  listaDeItens.forEach((item:IComanda | IProduto) => {
+  array && array.forEach((item:IComanda | IProduto) => {
     if(item.nome === nomeDoItem) {
       resultado = true
     }
@@ -67,7 +67,7 @@ const adicionarComanda = (nomeDaComanda:string, setComandas:React.Dispatch<React
   setComandas(listaDeComandas)
 }
 
-const adicionarProduto = (nome:string, valor:string, setProdutos: React.Dispatch<React.SetStateAction<IProduto[] | null>>) => {
+const cadastrarProduto = (nome:string, valor:string, setProdutos: React.Dispatch<React.SetStateAction<IProduto[] | null>>) => {
   const listaDeProdutos = carregarDados("produtos")
   listaDeProdutos.push(
     {
@@ -79,6 +79,25 @@ const adicionarProduto = (nome:string, valor:string, setProdutos: React.Dispatch
   setProdutos(listaDeProdutos)
 }
 
+const adicionarItemNaComanda = (nomeDaComanda:string, nomeDoProduto:string) => {
+  const produtoSelecionado = carregarDados(nomeDoProduto)
+  const comandaSelecionada = carregarDados(nomeDaComanda)
+  const listaDeConsumo = comandaSelecionada.consumo
+  
+
+  if (checarItemRepetido(produtoSelecionado.nome, listaDeConsumo)) {
+    listaDeConsumo.forEach((item:IProdutoConsumido) => item.nome === produtoSelecionado.nome && item.quantidade++)
+  } listaDeConsumo.push(
+    {
+      nome:produtoSelecionado.nome,
+      quantidade: 1,
+      valorUnit:produtoSelecionado.valorUnit
+    }
+  )
+  
+
+}
 
 
-export {salvarDados,carregarDados, adicionarComanda, adicionarProduto, validacaoDePreco, mascaraDePreco, checarItemRepetido}
+
+export {salvarDados,carregarDados, adicionarComanda, cadastrarProduto, validacaoDePreco, mascaraDePreco, checarItemRepetido, adicionarItemNaComanda}

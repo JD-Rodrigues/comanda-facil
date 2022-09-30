@@ -4,7 +4,7 @@ import styles from "./styles.module.css"
 
 
 export const CardComanda = ({nomeDaComanda, soma, setComandaSelecionada}:ICardComandaProps) => {
-  const total = soma.toLocaleString("pt-BR", {style:"currency", currency:"BRL"})
+  const total = soma && soma.toLocaleString("pt-BR", {style:"currency", currency:"BRL"})
   const navigate = useNavigate()
   const irPraComanda = () =>{    
     setComandaSelecionada(nomeDaComanda)

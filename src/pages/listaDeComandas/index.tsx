@@ -7,9 +7,11 @@ import styles from "./styles.module.css"
 import { CardComanda } from "../../components/cardComanda"
 
 export const ListaDeComandas = ({comandas,setComandas, setComandaSelecionada}:IListaDeComandasProps) => {
+
     const [abrirModal, setAbrirModal] = useState(false)
+
     const comandasGrid = comandas && comandas.map(comanda =>{
-        let total = comanda.consumo.reduce((soma, item) =>  (item.quantidade * item.valorUnit), 0 )
+        let total = comanda.consumo && comanda.consumo.reduce((soma, item) =>  (item.quantidade * item.valorUnit), 0 )
         return <CardComanda key={comanda.nome} nomeDaComanda={comanda.nome} soma={total} setComandaSelecionada={setComandaSelecionada}/>
     })
 
@@ -18,7 +20,7 @@ export const ListaDeComandas = ({comandas,setComandas, setComandaSelecionada}:IL
 
         const campoNomeDaComanda = document.querySelector("#nova__comanda") as HTMLInputElement
 
-        if(checarItemRepetido(campoNomeDaComanda.value,"comandas")) {
+        if(checarItemRepetido(campoNomeDaComanda.value,comandas)) {
             campoNomeDaComanda.value = ""
             alert("Ops! Já existe uma comanda com esse nome!")
             
