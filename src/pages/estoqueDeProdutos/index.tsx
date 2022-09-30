@@ -41,9 +41,6 @@ export const EstoqueDeProdutos = ({produtos, setProdutos}:IEstoqueDeProdutosProp
                 <p>Estoque</p>
                 <nav className="menu">
                     <ul className="menu__list">
-                        <Link to="/produtos">
-                            <li className="menu__item"></li>
-                        </Link>
                     </ul>                    
                 </nav>                
             </header>
@@ -60,7 +57,10 @@ export const EstoqueDeProdutos = ({produtos, setProdutos}:IEstoqueDeProdutosProp
                     <input type="text" id="novo__produto__nome" placeholder="Nome do produto"/>
                     <input type="text" id="novo__produto__valor" onChange={mascaraDeValor} placeholder="Preço do produto"/>
                     <div className={styles.adicionar__cancelar__btn}>
-                        <button onClick={()=>setAbrirModal(false)}>
+                        <button onClick={(e)=>{
+                            e.preventDefault()
+                            setAbrirModal(false)
+                        }}>
                             Cancelar
                         </button>
                         <button onClick={cadastrarNovoProduto}>Adicionar</button>
