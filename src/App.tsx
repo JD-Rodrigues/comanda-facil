@@ -12,6 +12,7 @@ function App() {
 
   const [comandas, setComandas] = useState<IComanda[] | null>(null)
   const [produtos, setProdutos] = useState<IProduto[] | null>(null)
+  const [comandaSelecionada, setComandaSelecionada] = useState("")
 
   useEffect(() => {
     const comandasDoStorage = carregarDados("comandas")
@@ -31,12 +32,12 @@ function App() {
 
   return (
     <div>
-      <Routes>
-        <Route path='/' element={<ListaDeComandas comandas={comandas} setComandas={setComandas} />} />
-        <Route path='comanda' element={<Comanda />} />
-        <Route path='/fechar-comanda' element={<FecharComanda />} />
-        <Route path='produtos' element={<ListaDeProdutos produtos={produtos} setProdutos={setProdutos} />} />        
-      </Routes>
+        <Routes>
+          <Route path='/' element={<ListaDeComandas comandas={comandas} setComandas={setComandas} setComandaSelecionada={setComandaSelecionada}/>} />
+          <Route path='comanda' element={<Comanda comandaSelecionada={comandaSelecionada} />} />
+          <Route path='/fechar-comanda' element={<FecharComanda />} />
+          <Route path='produtos' element={<ListaDeProdutos produtos={produtos} setProdutos={setProdutos} />} />        
+        </Routes>
       <footer className="footer container">
           <p>© 2022 - Desenvolvido por 
             <span className='desenvolvedor'> Domingos Rodrigues</span>

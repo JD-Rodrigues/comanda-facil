@@ -1,11 +1,14 @@
 import { Link } from "react-router-dom"
+import { IComandaProps } from "../../types"
 
 
-export const Comanda = () => {
+
+export const Comanda = ({comandaSelecionada}:IComandaProps) => {
+
     return(
         <div className="container">
             <header className="header">
-                <p>Comanda""</p>
+                <p>Comanda "{comandaSelecionada}"</p>
                 <nav className="menu">
                     <ul className="menu__list">
                         <Link to="/fechar-comanda">
@@ -14,7 +17,9 @@ export const Comanda = () => {
                     </ul>                    
                 </nav>                
             </header>
-            <main className="main"></main>
+            <main className="main">
+                {}
+            </main>
         </div>
     )
 }

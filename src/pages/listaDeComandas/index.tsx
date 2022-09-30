@@ -3,18 +3,14 @@ import { Link } from "react-router-dom"
 import { Modal } from "../../components/modal"
 import { adicionarComanda, checarItemRepetido } from "../../services"
 import { IListaDeComandasProps } from "../../types"
-import iconeErro from "../../assets/images/alerta-erro.png"
 import styles from "./styles.module.css"
 import { CardComanda } from "../../components/cardComanda"
-import { ModalAlert } from "../../components/modalAlert"
 
-export const ListaDeComandas = ({comandas,setComandas}:IListaDeComandasProps) => {
+export const ListaDeComandas = ({comandas,setComandas, setComandaSelecionada}:IListaDeComandasProps) => {
     const [abrirModal, setAbrirModal] = useState(false)
-    const [abrirModalErro, setAbrirModalErro] = useState(false)
-
     const comandasGrid = comandas && comandas.map(comanda =>{
         let total = comanda.consumo.reduce((soma, item) =>  (item.quantidade * item.valorUnit), 0 )
-        return <CardComanda key={comanda.nome} nomeDaComanda={comanda.nome} soma={total} />
+        return <CardComanda key={comanda.nome} nomeDaComanda={comanda.nome} soma={total} setComandaSelecionada={setComandaSelecionada}/>
     })
 
     const adicionarNovaComanda = (e:React.MouseEvent<HTMLButtonElement>) => {
@@ -23,10 +19,8 @@ export const ListaDeComandas = ({comandas,setComandas}:IListaDeComandasProps) =>
         const campoNomeDaComanda = document.querySelector("#nova__comanda") as HTMLInputElement
 
         if(checarItemRepetido(campoNomeDaComanda.value,"comandas")) {
-            
             campoNomeDaComanda.value = ""
-            setAbrirModal(false)
-            setAbrirModalErro(true)
+            alert("Ops! Já existe uma comanda com esse nome!")
             
         } else {
             comandas && adicionarComanda(campoNomeDaComanda.value, setComandas)
@@ -58,19 +52,18 @@ export const ListaDeComandas = ({comandas,setComandas}:IListaDeComandasProps) =>
             </main>
 
                        
-            {/* {abrirModal && <Modal toggle={abrirModal} nomeDoModal="Nome da comanda:">
+            <Modal toggle={abrirModal} nomeDoModal="Nome da comanda:">
                 <input type="text" id="nova__comanda"/>
                 <div className={styles.adicionar__cancelar__btn}>
-                    <button onClick={()=>setAbrirModal(false)}>Cancelar</button>
+                    <button onClick={(e)=>{
+                        e.preventDefault()
+                        setAbrirModal(false)}
+                    }
+                    >   Cancelar
+                    </button>
                     <button onClick={adicionarNovaComanda}>Adicionar</button>
                 </div>
-            </Modal>} 
-
-            { abrirModalErro && <ModalAlert toggle={abrirModalErro} nomeDoModal="Ops!">
-                <img src={iconeErro} className="icone__erro" />
-                <p>Já existe uma demanda com este nome!</p>
-                <button onClick={()=>setAbrirModalErro(false)}>Voltar</button>
-            </ModalAlert> } */}
+            </Modal>
 
             
             

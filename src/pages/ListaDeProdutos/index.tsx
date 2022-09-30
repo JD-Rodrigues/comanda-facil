@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
+import { CardProduto } from "../../components/cardProduto"
 import { Modal } from "../../components/modal"
-import { adicionarProduto, mascaraDePreco, validacaoDePreco } from "../../services"
+import { adicionarProduto, checarItemRepetido, mascaraDePreco, validacaoDePreco } from "../../services"
 import { IListaDeProdutosProps } from "../../types"
 import styles from "./styles.module.css"
 
@@ -18,13 +19,23 @@ export const ListaDeProdutos = ({produtos, setProdutos}:IListaDeProdutosProps) =
         e.preventDefault()
 
         const campoNome = document.querySelector("#novo__produto__nome") as HTMLInputElement
+
         const campoValor = document.querySelector("#novo__produto__valor") as HTMLInputElement
 
-        adicionarProduto(campoNome.value, campoValor.value, setProdutos)
-        campoNome.value = ""
-        campoValor.value = ""
+        if (checarItemRepetido(campoNome.value, "produtos")){
+            campoNome.value = ""
+            campoValor.value = ""
+            alert("Ops! Já existe uma comanda com esse nome!")
+        }else {
+            produtos && adicionarProduto(campoNome.value, campoValor.value, setProdutos)
+            campoNome.value = ""
+            campoValor.value = ""
+    
+            setAbrirModal(false)
+        }
+        
 
-        setAbrirModal(false)
+        
     }
 
     return(
@@ -40,6 +51,10 @@ export const ListaDeProdutos = ({produtos, setProdutos}:IListaDeProdutosProps) =
                 </nav>                
             </header>
             <main className="main">
+                <ul>
+                    {produtos && produtos.map(produto=> <CardProduto key={produto.nome} nome={produto.nome} valor={produto.valorUnit}  />)}
+                </ul>
+                
                 <div className="add" onClick={()=>setAbrirModal(true)}>
                     <div>+</div>
                 </div>

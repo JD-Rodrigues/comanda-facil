@@ -6,9 +6,8 @@ export const Modal = ({nomeDoModal, children, toggle}:IModalProps) => {
     
     useEffect(()=>{
         const dialog = document.querySelector('dialog') as HTMLDialogElement
-        dialog.showModal()
-        // toggle ? dialog.showModal() : dialog.close()
-    }, [])
+        toggle ? dialog.showModal() : dialog.close()
+    }, [toggle])
  
     return (
         <dialog>
