@@ -38,7 +38,7 @@ export const ListaDeComandas = ({comandas,setComandas, setComandaSelecionada}:IL
                 <p>Comandas</p>
                 <nav className="menu">
                     <ul className="menu__list">
-                        <Link to="/produtos">
+                        <Link to="/estoque">
                             <li className="menu__item"></li>
                         </Link>
                     </ul>                    

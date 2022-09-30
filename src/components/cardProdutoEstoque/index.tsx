@@ -1,10 +1,10 @@
 import { mascaraDePreco } from "../../services"
-import { ICardProdutoProps } from "../../types"
+import { ICardProdutoEstoqueProps } from "../../types"
 
-export const CardProduto = ({nome, valor, setProdutoSelecionado}:ICardProdutoProps)=>{
+export const CardProdutoEstoque = ({nome, valor}:ICardProdutoEstoqueProps)=>{
   const valorFormatado = mascaraDePreco(String(valor))
   return(
-    <li onClick={()=>setProdutoSelecionado(nome)}>
+    <li>
       <p>{nome}</p>
       <p>{`R$${valorFormatado}`}</p>
     </li>

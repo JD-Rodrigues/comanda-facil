@@ -33,10 +33,14 @@ interface IComandaProps {
   comandaSelecionada: string
 }
 
-interface IListaDeProdutosProps {
+interface IEstoqueDeProdutosProps {
   produtos: IProduto[] | null;
   setProdutos: React.Dispatch<React.SetStateAction<IProduto[] | null>>
-  comandaSelecionada: string
+}
+
+interface ICardapioProps {
+  produtos: IProduto[] | null;
+  comandaSelecionada:string;
 }
 
 interface ICardComandaProps {
@@ -45,10 +49,15 @@ interface ICardComandaProps {
   setComandaSelecionada: React.Dispatch<React.SetStateAction<string>>
 }
 
-interface ICardProdutoProps{
+interface ICardProdutoEstoqueProps{
+  nome:string;
+  valor:number;  
+}
+
+interface ICardProdutoMenuProps{
   nome:string;
   valor:number;
-  setProdutoSelecionado: React.Dispatch<React.SetStateAction<string | null>>
+  setProdutoSelecionado:React.Dispatch<React.SetStateAction<string | null>>
 }
 
 
@@ -56,4 +65,4 @@ type TDadosParaLocalStorage = IProduto[] | IComanda[]
 
 type TArrayParaChecagemDeItensRepetidos = IComanda[] | IProduto[] | IProdutoConsumido[] |null
 
-export type {IProduto, IProdutoConsumido, IComanda, TDadosParaLocalStorage, IModalProps, IListaDeComandasProps, IListaDeProdutosProps, ICardComandaProps, ICardProdutoProps, IComandaProps, TArrayParaChecagemDeItensRepetidos}
+export type {IProduto, IProdutoConsumido, IComanda, TDadosParaLocalStorage, IModalProps, IListaDeComandasProps, IEstoqueDeProdutosProps, ICardapioProps, ICardComandaProps, ICardProdutoEstoqueProps, ICardProdutoMenuProps, IComandaProps, TArrayParaChecagemDeItensRepetidos}

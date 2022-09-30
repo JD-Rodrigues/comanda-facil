@@ -1,0 +1,4 @@
+.adicionar__cancelar__btn {
+  display: flex;
+  justify-content: space-around;
+}

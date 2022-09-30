@@ -11,6 +11,9 @@ export const Comanda = ({comandaSelecionada}:IComandaProps) => {
                 <p>Comanda "{comandaSelecionada}"</p>
                 <nav className="menu">
                     <ul className="menu__list">
+                        <Link to="/cardapio">
+                            <li className="menu__item"></li>
+                        </Link>
                         <Link to="/fechar-comanda">
                             <li className="menu__item"></li>
                         </Link>

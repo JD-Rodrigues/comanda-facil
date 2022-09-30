@@ -1,14 +1,13 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import { Link } from "react-router-dom"
-import { CardProduto } from "../../components/cardProduto"
+import { CardProdutoEstoque } from "../../components/cardProdutoEstoque"
 import { Modal } from "../../components/modal"
-import { adicionarComanda, adicionarItemNaComanda, cadastrarProduto, checarItemRepetido, mascaraDePreco, validacaoDePreco } from "../../services"
-import { IListaDeProdutosProps } from "../../types"
+import { cadastrarProduto, checarItemRepetido, mascaraDePreco, validacaoDePreco } from "../../services"
+import { IEstoqueDeProdutosProps } from "../../types"
 import styles from "./styles.module.css"
 
 
-export const ListaDeProdutos = ({produtos, setProdutos, comandaSelecionada}:IListaDeProdutosProps) => {
-    const [produtoSelecionado, setProdutoSelecionado] = useState<string | null>(null)
+export const EstoqueDeProdutos = ({produtos, setProdutos}:IEstoqueDeProdutosProps) => {
     const [abrirModal, setAbrirModal] = useState(false)
 
     const mascaraDeValor = (e:React.ChangeEvent<HTMLInputElement>) => {
@@ -36,14 +35,10 @@ export const ListaDeProdutos = ({produtos, setProdutos, comandaSelecionada}:ILis
         }              
     }
 
-    useEffect(()=>{
-        produtoSelecionado && adicionarItemNaComanda(comandaSelecionada, produtoSelecionado)
-    })
-
     return(
         <div className="container">
             <header className="header">
-                <p>Produtos</p>
+                <p>Estoque</p>
                 <nav className="menu">
                     <ul className="menu__list">
                         <Link to="/produtos">
@@ -54,7 +49,7 @@ export const ListaDeProdutos = ({produtos, setProdutos, comandaSelecionada}:ILis
             </header>
             <main className="main">
                 <ul>
-                    {produtos && produtos.map(produto=> <CardProduto key={produto.nome} nome={produto.nome} valor={produto.valorUnit} setProdutoSelecionado={setProdutoSelecionado}  />)}
+                    {produtos && produtos.map(produto=> <CardProdutoEstoque key={produto.nome} nome={produto.nome} valor={produto.valorUnit}  />)}
                 </ul>
                 
                 <div className="add" onClick={()=>setAbrirModal(true)}>

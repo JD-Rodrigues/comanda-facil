@@ -1,12 +1,13 @@
 import { Route, Routes } from 'react-router-dom'
 import { Comanda } from './pages/comanda'
 import { ListaDeComandas } from './pages/listaDeComandas'
-import { ListaDeProdutos } from './pages/ListaDeProdutos'
+import { EstoqueDeProdutos} from './pages/estoqueDeProdutos'
 import "./App.css"
 import { FecharComanda } from './pages/fecharComanda'
 import { useEffect, useState } from 'react'
 import { carregarDados, salvarDados } from './services'
 import { IComanda, IProduto } from './types'
+import { Cardapio } from './pages/cardapio'
 
 function App() {
 
@@ -36,7 +37,8 @@ function App() {
           <Route path='/' element={<ListaDeComandas comandas={comandas} setComandas={setComandas} setComandaSelecionada={setComandaSelecionada}/>} />
           <Route path='comanda' element={<Comanda comandaSelecionada={comandaSelecionada} />} />
           <Route path='/fechar-comanda' element={<FecharComanda />} />
-          <Route path='produtos' element={<ListaDeProdutos produtos={produtos} setProdutos={setProdutos} comandaSelecionada={comandaSelecionada} />} />        
+          <Route path='estoque' element={<EstoqueDeProdutos produtos={produtos} setProdutos={setProdutos} />} />    
+          <Route path='cardapio' element={<Cardapio comandaSelecionada={comandaSelecionada} produtos={produtos} />} />      
         </Routes>
       <footer className="footer container">
           <p>© 2022 - Desenvolvido por 
