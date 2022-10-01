@@ -12,8 +12,8 @@ export const ListaDeComandas = ({comandas,setComandas, setComandaSelecionada}:IL
     const [abrirModal, setAbrirModal] = useState(false)
 
     const comandasGrid = comandas && comandas.map(comanda =>{
-        // let total = comanda.consumo && comanda.consumo.map((soma:number,item:IProdutoConsumido) =>  item.quantidade * item.valorUnit, 0 )
-        return <CardComanda key={comanda.nome} nomeDaComanda={comanda.nome} soma={0} setComandaSelecionada={setComandaSelecionada}/>
+        let total = comanda.consumo && comanda.consumo.reduce((acc, item) =>  acc + item.quantidade * item.valorUnit,0)
+        return <CardComanda key={comanda.nome} nomeDaComanda={comanda.nome} soma={total} setComandaSelecionada={setComandaSelecionada}/>
     })
 
     const adicionarNovaComanda = (e:React.MouseEvent<HTMLButtonElement>) => {
@@ -46,7 +46,7 @@ export const ListaDeComandas = ({comandas,setComandas, setComandaSelecionada}:IL
                 </nav>                
             </header>
             <main className="main">
-                <ul>
+                <ul className={styles.cards__comandas}>
                     {comandasGrid}
                 </ul>
                 <div onClick={()=>setAbrirModal(true)} className="add">

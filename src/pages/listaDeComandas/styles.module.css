@@ -6,3 +6,12 @@
 .icone__estoque {
   width: 100%;
 }
+
+.cards__comandas {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content: center;
+  row-gap: 10px;
+  column-gap: 10px;
+}

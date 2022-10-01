@@ -3,9 +3,11 @@
   height: 50px;
   padding: 5px;
   border: var(--dark) solid 1px;
+  color: var(--dark);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   font-size: 14px;
+  cursor: pointer;
 }

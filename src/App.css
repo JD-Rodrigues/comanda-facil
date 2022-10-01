@@ -21,17 +21,10 @@
   height: calc(100vh - 60px);
   padding: 30px;
   display: flex;
+  justify-content: center;
   background-color: whitesmoke;
 }
 
-.main ul {
-  display: flex;
-  align-items:flex-start;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  row-gap: 0px;
-  column-gap: 10px;
-}
 .menu {
   width: 25px;
   height: 100%;

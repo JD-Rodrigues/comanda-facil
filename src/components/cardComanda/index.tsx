@@ -1,10 +1,11 @@
 import { useNavigate } from "react-router-dom"
+import { mascaraDePreco } from "../../services"
 import { ICardComandaProps } from "../../types"
 import styles from "./styles.module.css"
 
 
 export const CardComanda = ({nomeDaComanda, soma, setComandaSelecionada}:ICardComandaProps) => {
-  const total = soma && soma.toLocaleString("pt-BR", {style:"currency", currency:"BRL"})
+  const total = soma === 0 ? mascaraDePreco("000") : mascaraDePreco(String(soma))
   const navigate = useNavigate()
   const irPraComanda = () =>{    
     setComandaSelecionada(nomeDaComanda)
@@ -14,7 +15,7 @@ export const CardComanda = ({nomeDaComanda, soma, setComandaSelecionada}:ICardCo
   return(
     <li className={styles.card__wrapper} onClick={irPraComanda}>
       <p>{nomeDaComanda}</p>
-      <p>{total}</p>
+      <p>R$ {total}</p>
     </li>
   )
 } 
