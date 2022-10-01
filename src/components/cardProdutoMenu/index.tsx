@@ -4,9 +4,9 @@ import { ICardProdutoMenuProps } from "../../types"
 export const CardProdutoMenu = ({nome, valor}:ICardProdutoMenuProps)=>{
   const valorFormatado = mascaraDePreco(String(valor))
   return(
-    <li>
+    <div>
       <p>{nome}</p>
       <p>{`R$${valorFormatado}`}</p>
-    </li>
+    </div>
   )
 }

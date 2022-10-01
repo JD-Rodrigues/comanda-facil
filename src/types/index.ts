@@ -41,6 +41,7 @@ interface IEstoqueDeProdutosProps {
 interface ICardapioProps {
   produtos: IProduto[] | null;
   comandaSelecionada:string;
+  setComandas: React.Dispatch<React.SetStateAction<IComanda[] | null>>
 }
 
 interface ICardComandaProps {
@@ -57,7 +58,6 @@ interface ICardProdutoEstoqueProps{
 interface ICardProdutoMenuProps{
   nome:string;
   valor:number;
-  setProdutoSelecionado:React.Dispatch<React.SetStateAction<string | null>>
 }
 
 

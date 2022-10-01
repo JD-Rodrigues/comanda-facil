@@ -2,21 +2,20 @@ import React, { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { CardProdutoMenu } from "../../components/cardProdutoMenu"
 import { Modal } from "../../components/modal"
-import { adicionarItemNaComanda} from "../../services"
+import { atualizarComanda} from "../../services"
 import { ICardapioProps } from "../../types"
 import styles from "./styles.module.css"
 
 
-export const Cardapio = ({produtos, comandaSelecionada}:ICardapioProps) => {
+export const Cardapio = ({produtos, comandaSelecionada, setComandas}:ICardapioProps) => {
     const [produtoSelecionado, setProdutoSelecionado] = useState<string | null>(null)
-    const [abrirModal, setAbrirModal] = useState(false)
 
-    const adicionarProdutoAComanda = ()=> {
-
+    const adicionarProdutoNaComanda = ()=> {
+        produtoSelecionado && setComandas && atualizarComanda(comandaSelecionada, produtoSelecionado, setComandas)
     }
 
     useEffect(()=>{
-        produtoSelecionado && adicionarItemNaComanda(comandaSelecionada, produtoSelecionado)
+        produtoSelecionado && adicionarProdutoNaComanda()
     },[produtoSelecionado])
 
     return(
@@ -28,18 +27,20 @@ export const Cardapio = ({produtos, comandaSelecionada}:ICardapioProps) => {
             </header>
             <main className="main">
                 <ul>
-                    {produtos && produtos.map(produto=> <CardProdutoMenu key={produto.nome} nome={produto.nome} valor={produto.valorUnit} setProdutoSelecionado={setProdutoSelecionado}  />)}
+                    {produtos && produtos.map(produto => 
+                    <li 
+                        key={produto.nome} 
+                        onClick={()=>{
+                            setProdutoSelecionado(produto.nome)
+                             adicionarProdutoNaComanda()
+                        }
+                    }>
+                        <CardProdutoMenu 
+                            nome={produto.nome} 
+                            valor={produto.valorUnit}
+                        />
+                    </li>)}
                 </ul>
-
-                <Modal toggle={abrirModal} nomeDoModal="Novo Produto:">
-                    <div>
-                    <p>Gostaria de adicionar este produto à comanda "{comandaSelecionada}"</p>
-                        <button onClick={()=>setAbrirModal(false)}>
-                            Cancelar
-                        </button>
-                        <button onClick={adicionarProdutoAComanda}>Adicionar</button>
-                    </div>
-                </Modal>
             </main>
         </div>
     )

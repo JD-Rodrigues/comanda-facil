@@ -38,7 +38,7 @@ function App() {
           <Route path='comanda' element={<Comanda comandaSelecionada={comandaSelecionada} />} />
           <Route path='/fechar-comanda' element={<FecharComanda />} />
           <Route path='estoque' element={<EstoqueDeProdutos produtos={produtos} setProdutos={setProdutos} />} />    
-          <Route path='cardapio' element={<Cardapio comandaSelecionada={comandaSelecionada} produtos={produtos} />} />      
+          <Route path='cardapio' element={<Cardapio comandaSelecionada={comandaSelecionada} produtos={produtos} setComandas={setComandas} />} />      
         </Routes>
       <footer className="footer container">
           <p>© 2022 - Desenvolvido por 

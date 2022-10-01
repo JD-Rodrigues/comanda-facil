@@ -79,25 +79,42 @@ const cadastrarProduto = (nome:string, valor:string, setProdutos: React.Dispatch
   setProdutos(listaDeProdutos)
 }
 
-const adicionarItemNaComanda = (nomeDaComanda:string, nomeDoProduto:string) => {
-  const produtoSelecionado = carregarDados(nomeDoProduto)
-  const comandaSelecionada = carregarDados(nomeDaComanda)
-  const listaDeConsumo = comandaSelecionada.consumo
+function adicionarProdutoAComanda(comanda:IComanda, produto:IProduto){
+  console.log(comanda.nome)
   
+    comanda.consumo && comanda.consumo.push(
+      {
+        nome:produto.nome,
+        valorUnit:produto.valorUnit,
+        quantidade:1
+      }
+    )  
+}
 
-  if (checarItemRepetido(produtoSelecionado.nome, listaDeConsumo)) {
-    listaDeConsumo.forEach((item:IProdutoConsumido) => item.nome === produtoSelecionado.nome && item.quantidade++)
-  } listaDeConsumo.push(
-    {
-      nome:produtoSelecionado.nome,
-      quantidade: 1,
-      valorUnit:produtoSelecionado.valorUnit
-    }
-  )
-  
+function incrementarQuantidade(comanda:IComanda, nomeDoProduto:string){
+  comanda.consumo && comanda.consumo.forEach((item:IProdutoConsumido)=> item.nome === nomeDoProduto && item.quantidade ++)
+}
+
+function atualizarComanda(nomeDaComanda:string, nomeDoProduto:string, setComandas:React.Dispatch<React.SetStateAction<IComanda[] | null>>){
+  const comandas = carregarDados("comandas")
+  const estoque = carregarDados("produtos")
+  const [comandaEscolhida] = comandas.filter((comanda:IComanda)=>comanda.nome === nomeDaComanda)
+  const [produtoEscolhido] = estoque.filter((produto:IProduto)=> produto.nome === nomeDoProduto)
+
+
+  if (checarItemRepetido(nomeDoProduto, comandaEscolhida.consumo)){
+    incrementarQuantidade(comandaEscolhida, nomeDoProduto)
+  } else {
+    adicionarProdutoAComanda(comandaEscolhida, produtoEscolhido)
+  }
+
+  comandas.map((comanda:IComanda)=> comanda.nome === comandaEscolhida.nome && comandaEscolhida)
+
+  setComandas(comandas)
 
 }
 
 
 
-export {salvarDados,carregarDados, adicionarComanda, cadastrarProduto, validacaoDePreco, mascaraDePreco, checarItemRepetido, adicionarItemNaComanda}
+
+export {salvarDados,carregarDados, adicionarComanda, cadastrarProduto, validacaoDePreco, mascaraDePreco, checarItemRepetido, atualizarComanda}
