@@ -4,5 +4,9 @@
 }
 
 #lista {
+  width: 100%;
   display: flex;
+  align-content: flex-start;
+  row-gap: 10px;
+  flex-wrap: wrap;
 }

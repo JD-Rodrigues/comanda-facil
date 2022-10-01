@@ -40,7 +40,7 @@ export const ListaDeComandas = ({comandas,setComandas, setComandaSelecionada}:IL
                 <nav className="menu">
                     <ul className="menu__list">
                         <Link to="/estoque">
-                            <li className="menu__item"><img className={styles.icone__estoque} src={estoque}></img></li>
+                            <li className="menu__item"><img className={styles.icone__estoque} src={estoque} alt="Cadastrar produto" title="Cadastrar produto"></img></li>
                         </Link>
                     </ul>                    
                 </nav>                
