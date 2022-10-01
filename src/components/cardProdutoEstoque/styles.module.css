@@ -1,0 +1,10 @@
+.card__wrapper {
+  width: 50%;
+  border: var(--dark) 1px;
+}
+
+.card__wrapper li {
+  display: flex;
+  width: 50%;
+  border: var(--dark) 1px;
+}

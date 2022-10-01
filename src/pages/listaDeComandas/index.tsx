@@ -2,17 +2,18 @@ import React, { useState } from "react"
 import { Link } from "react-router-dom"
 import { Modal } from "../../components/modal"
 import { adicionarComanda, checarItemRepetido } from "../../services"
-import { IListaDeComandasProps } from "../../types"
+import { IComanda, IListaDeComandasProps, IProdutoConsumido } from "../../types"
 import styles from "./styles.module.css"
 import { CardComanda } from "../../components/cardComanda"
+import estoque from "../../assets/images/estoque.png"
 
 export const ListaDeComandas = ({comandas,setComandas, setComandaSelecionada}:IListaDeComandasProps) => {
 
     const [abrirModal, setAbrirModal] = useState(false)
 
     const comandasGrid = comandas && comandas.map(comanda =>{
-        let total = comanda.consumo && comanda.consumo.reduce((soma, item) =>  (item.quantidade * item.valorUnit), 0 )
-        return <CardComanda key={comanda.nome} nomeDaComanda={comanda.nome} soma={total} setComandaSelecionada={setComandaSelecionada}/>
+        // let total = comanda.consumo && comanda.consumo.map((soma:number,item:IProdutoConsumido) =>  item.quantidade * item.valorUnit, 0 )
+        return <CardComanda key={comanda.nome} nomeDaComanda={comanda.nome} soma={0} setComandaSelecionada={setComandaSelecionada}/>
     })
 
     const adicionarNovaComanda = (e:React.MouseEvent<HTMLButtonElement>) => {
@@ -39,7 +40,7 @@ export const ListaDeComandas = ({comandas,setComandas, setComandaSelecionada}:IL
                 <nav className="menu">
                     <ul className="menu__list">
                         <Link to="/estoque">
-                            <li className="menu__item"></li>
+                            <li className="menu__item"><img className={styles.icone__estoque} src={estoque}></img></li>
                         </Link>
                     </ul>                    
                 </nav>                

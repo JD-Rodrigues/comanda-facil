@@ -44,7 +44,7 @@ export const EstoqueDeProdutos = ({produtos, setProdutos}:IEstoqueDeProdutosProp
                     </ul>                    
                 </nav>                
             </header>
-            <main className="main">
+            <main className="main" id={styles.lista}>
                 <ul>
                     {produtos && produtos.map(produto=> <CardProdutoEstoque key={produto.nome} nome={produto.nome} valor={produto.valorUnit}  />)}
                 </ul>

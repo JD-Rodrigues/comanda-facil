@@ -19,11 +19,21 @@
   position: relative;
   max-width: 700px;
   height: calc(100vh - 60px);
+  padding: 30px;
+  display: flex;
   background-color: whitesmoke;
 }
 
+.main ul {
+  display: flex;
+  align-items:flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  row-gap: 0px;
+  column-gap: 10px;
+}
 .menu {
-  width: 150px;
+  width: 25px;
   height: 100%;
 }
 
@@ -36,7 +46,6 @@
 .menu__item {
   width: 20px;
   height: 100%;
-  border: red solid;
 }
 
 .add {
@@ -52,6 +61,7 @@
   color: var(--dark);
   font-size: 25px;
   background-color: var(--contrast);
+  cursor: pointer;
 }
 
 

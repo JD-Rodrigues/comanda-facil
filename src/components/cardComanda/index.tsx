@@ -13,7 +13,6 @@ export const CardComanda = ({nomeDaComanda, soma, setComandaSelecionada}:ICardCo
 
   return(
     <li className={styles.card__wrapper} onClick={irPraComanda}>
-      <nav><img></img></nav>
       <p>{nomeDaComanda}</p>
       <p>{total}</p>
     </li>
