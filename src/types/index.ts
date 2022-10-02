@@ -60,9 +60,13 @@ interface ICardProdutoMenuProps{
   valor:number;
 }
 
+interface ICardProdutoDaComandaProps{
+  produto: IProdutoConsumido
+}
+
 
 type TDadosParaLocalStorage = IProduto[] | IComanda[]
 
 type TArrayParaChecagemDeItensRepetidos = IComanda[] | IProduto[] | IProdutoConsumido[] |null
 
-export type {IProduto, IProdutoConsumido, IComanda, TDadosParaLocalStorage, IModalProps, IListaDeComandasProps, IEstoqueDeProdutosProps, ICardapioProps, ICardComandaProps, ICardProdutoEstoqueProps, ICardProdutoMenuProps, IComandaProps, TArrayParaChecagemDeItensRepetidos}
+export type {IProduto, IProdutoConsumido, IComanda, TDadosParaLocalStorage, IModalProps, IListaDeComandasProps, IEstoqueDeProdutosProps, ICardapioProps, ICardComandaProps, ICardProdutoEstoqueProps, ICardProdutoMenuProps, IComandaProps, TArrayParaChecagemDeItensRepetidos, ICardProdutoDaComandaProps}

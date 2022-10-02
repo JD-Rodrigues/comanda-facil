@@ -21,8 +21,12 @@
   height: calc(100vh - 60px);
   padding: 30px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  row-gap: 20px;
   background-color: whitesmoke;
+  font-size: 12px;
 }
 
 .menu {

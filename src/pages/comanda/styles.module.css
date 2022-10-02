@@ -6,4 +6,9 @@
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 0px 10px var(--dark);
+  font-weight: bold;
+}
+
+.lista__produtos__consumidos {
+  width: 100%;
 }

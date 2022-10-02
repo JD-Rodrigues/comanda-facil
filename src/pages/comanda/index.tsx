@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
+import { CardProdutoDaComanda } from "../../components/cardProdutoDaComanda"
 import { calcularTotalGastoEmComanda, carregarDados, mascaraDePreco } from "../../services"
-import { IComanda, IComandaProps } from "../../types"
+import { IComanda, IComandaProps, IProdutoConsumido } from "../../types"
 import styles from "./styles.module.css"
 
 
@@ -11,6 +12,8 @@ export const Comanda = ({comandaSelecionada}:IComandaProps) => {
 
     const total = String(calcularTotalGastoEmComanda(estaComanda))
     const totalAPagar = total === "0" ? mascaraDePreco("000") : mascaraDePreco(total)
+
+    const cardsDeProdutosConsumidos = estaComanda.consumo.map((item:IProdutoConsumido)=> <li key={item.nome}><CardProdutoDaComanda  produto={item}/></li>)
 
     return(
         <div className="container">
@@ -32,6 +35,9 @@ export const Comanda = ({comandaSelecionada}:IComandaProps) => {
                     <p>Total</p>
                     <p>R$ {totalAPagar}</p>
                 </header>
+                <ul className={styles.lista__produtos__consumidos}>
+                    {cardsDeProdutosConsumidos}
+                </ul>
             </main>
         </div>
     )
