@@ -3,7 +3,6 @@ import { Comanda } from './pages/comanda'
 import { ListaDeComandas } from './pages/listaDeComandas'
 import { EstoqueDeProdutos} from './pages/estoqueDeProdutos'
 import "./App.css"
-import { FecharComanda } from './pages/fecharComanda'
 import { useEffect, useState } from 'react'
 import { carregarDados, salvarDados } from './services'
 import { IComanda, IProduto } from './types'
@@ -37,8 +36,7 @@ function App() {
         <Routes>
           <Route path='/' element={<ListaDeComandas comandas={comandas} setComandas={setComandas} setComandaSelecionada={setComandaSelecionada}/>} />
           <Route path='/comandas-fechadas' element={<ComandasFechadas comandas={comandas} setComandaSelecionada={setComandaSelecionada}/>} />
-          <Route path='comanda' element={<Comanda comandaSelecionada={comandaSelecionada} />} />
-          <Route path='/fechar-comanda' element={<FecharComanda />} />
+          <Route path='comanda' element={<Comanda comandaSelecionada={comandaSelecionada} setComandas={setComandas} />} />
           <Route path='estoque' element={<EstoqueDeProdutos produtos={produtos} setProdutos={setProdutos} />} />    
           <Route path='cardapio' element={<Cardapio comandaSelecionada={comandaSelecionada} produtos={produtos} setComandas={setComandas} />} />      
         </Routes>

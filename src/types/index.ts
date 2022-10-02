@@ -36,6 +36,7 @@ interface IComandasFechadasProps {
 
 interface IComandaProps {
   comandaSelecionada: string
+  setComandas: React.Dispatch<React.SetStateAction<IComanda[] | null>>
 }
 
 interface IEstoqueDeProdutosProps {

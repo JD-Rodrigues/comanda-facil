@@ -68,6 +68,18 @@ const adicionarComanda = (nomeDaComanda:string, setComandas:React.Dispatch<React
   setComandas(listaDeComandas)
 }
 
+const fecharComanda = (nomeDaComanda:string) => {
+  const comandas = carregarDados("comandas")
+  comandas.forEach((comanda:IComanda)=>  {
+    if(comanda.nome === nomeDaComanda){
+      comanda.aberta = false
+    }
+  })
+
+  return comandas
+
+}
+
 const cadastrarProduto = (nome:string, valor:string, setProdutos: React.Dispatch<React.SetStateAction<IProduto[] | null>>) => {
   const listaDeProdutos = carregarDados("produtos")
   listaDeProdutos.push(
@@ -124,4 +136,4 @@ function calcularTotalGastoEmComanda(comanda:IComanda) {
 
 
 
-export {salvarDados,carregarDados, adicionarComanda, cadastrarProduto, validacaoDePreco, mascaraDePreco, checarItemRepetido, atualizarComanda, calcularTotalGastoEmComanda}
+export {salvarDados,carregarDados, adicionarComanda, cadastrarProduto, validacaoDePreco, mascaraDePreco, checarItemRepetido, atualizarComanda, calcularTotalGastoEmComanda, fecharComanda}

@@ -1,6 +1,6 @@
 
 
-export const FecharComanda = () => {
+export const FecharComandaModal = () => {
     return(
         <div className="container">
             <header className="header">
