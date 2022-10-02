@@ -61,6 +61,7 @@ const adicionarComanda = (nomeDaComanda:string, setComandas:React.Dispatch<React
   listaDeComandas.push(
     {
       nome: nomeDaComanda,
+      aberta:true,
       consumo: []
     }
   )

@@ -1,5 +1,4 @@
 import React from "react";
-import { JsxElement } from "typescript";
 
 interface IProduto {
   nome: string;
@@ -14,6 +13,7 @@ interface IProdutoConsumido {
 
 interface IComanda {
   nome: string;
+  aberta:boolean;
   consumo: IProdutoConsumido[] | null
 }
 
@@ -26,6 +26,11 @@ interface IModalProps {
 interface IListaDeComandasProps {
   comandas: IComanda[] | null;
   setComandas: React.Dispatch<React.SetStateAction<IComanda[] | null>>
+  setComandaSelecionada: React.Dispatch<React.SetStateAction<string>>
+}
+
+interface IComandasFechadasProps {
+  comandas: IComanda[] | null;
   setComandaSelecionada: React.Dispatch<React.SetStateAction<string>>
 }
 
@@ -69,4 +74,4 @@ type TDadosParaLocalStorage = IProduto[] | IComanda[]
 
 type TArrayParaChecagemDeItensRepetidos = IComanda[] | IProduto[] | IProdutoConsumido[] |null
 
-export type {IProduto, IProdutoConsumido, IComanda, TDadosParaLocalStorage, IModalProps, IListaDeComandasProps, IEstoqueDeProdutosProps, ICardapioProps, ICardComandaProps, ICardProdutoEstoqueProps, ICardProdutoMenuProps, IComandaProps, TArrayParaChecagemDeItensRepetidos, ICardProdutoDaComandaProps}
+export type {IProduto, IProdutoConsumido, IComanda, TDadosParaLocalStorage, IModalProps, IListaDeComandasProps, IEstoqueDeProdutosProps, ICardapioProps, ICardComandaProps, ICardProdutoEstoqueProps, ICardProdutoMenuProps, IComandaProps, TArrayParaChecagemDeItensRepetidos, ICardProdutoDaComandaProps, IComandasFechadasProps}

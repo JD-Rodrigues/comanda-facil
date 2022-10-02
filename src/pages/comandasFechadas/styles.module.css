@@ -42,10 +42,10 @@
   width: 30px;
 }
 
-#comandas__fechadas {
+#comandas__abertas {
   cursor: pointer;
 }
 
-.comanda__fechada__txt {
+.comanda__aberta__txt {
   color: var(--dark-inactive);
 }

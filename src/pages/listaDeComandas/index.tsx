@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { Modal } from "../../components/modal"
 import { adicionarComanda, calcularTotalGastoEmComanda, checarItemRepetido } from "../../services"
 import { IComanda, IListaDeComandasProps, IProdutoConsumido } from "../../types"
@@ -13,6 +13,7 @@ import fechadas from "../../assets/images/fechado-inativo.png"
 export const ListaDeComandas = ({comandas,setComandas, setComandaSelecionada}:IListaDeComandasProps) => {
 
     const [abrirModal, setAbrirModal] = useState(false)
+    const navigate = useNavigate()
 
     const comandasGrid = comandas && comandas.map(comanda =>{
         let total = calcularTotalGastoEmComanda(comanda)
@@ -60,7 +61,7 @@ export const ListaDeComandas = ({comandas,setComandas, setComandaSelecionada}:IL
                         <img className={styles.nav__comandas__img} src={abertas} alt="" />
                         <p className={styles.comanda__aberta__txt}>Abertas</p>
                     </div>
-                    <div className={styles.nav__comandas__btn}>
+                    <div onClick={()=>navigate("/comandas-fechadas")} className={styles.nav__comandas__btn} id={styles.comandas__fechadas}>
                     <img className={styles.nav__comandas__img} src={fechadas} alt="" />
                         <p className={styles.comanda__fechada__txt}>Fechadas</p>
                     </div>

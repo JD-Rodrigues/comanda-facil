@@ -53,6 +53,7 @@ html {
 
 body {
   --dark: #2b4052;
+  --dark-inactive:#8192a2;
   --light: white;
   --contrast: #fad88f;
   font-family: Ubuntu;

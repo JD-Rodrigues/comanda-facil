@@ -47,10 +47,10 @@
 
 .add {
   position: fixed;
-  top: 75vh;
+  top: 65vh;
   right: 30px;
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   display: flex;
   justify-content: center;

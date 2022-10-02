@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react'
 import { carregarDados, salvarDados } from './services'
 import { IComanda, IProduto } from './types'
 import { Cardapio } from './pages/cardapio'
+import { ComandasFechadas } from './pages/comandasFechadas'
 
 function App() {
 
@@ -35,6 +36,7 @@ function App() {
     <div>
         <Routes>
           <Route path='/' element={<ListaDeComandas comandas={comandas} setComandas={setComandas} setComandaSelecionada={setComandaSelecionada}/>} />
+          <Route path='/comandas-fechadas' element={<ComandasFechadas comandas={comandas} setComandaSelecionada={setComandaSelecionada}/>} />
           <Route path='comanda' element={<Comanda comandaSelecionada={comandaSelecionada} />} />
           <Route path='/fechar-comanda' element={<FecharComanda />} />
           <Route path='estoque' element={<EstoqueDeProdutos produtos={produtos} setProdutos={setProdutos} />} />    
