@@ -35,6 +35,6 @@
 }
 
 .modal__input:focus {
-  outline: var(--dark-inactive) solid 1px;
-  outline-offset: -2px;
+  outline: var(--dark-inactive) solid 2px;
+  outline-offset: -1px;
 }
