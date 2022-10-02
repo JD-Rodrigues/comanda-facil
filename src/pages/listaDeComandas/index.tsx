@@ -6,6 +6,9 @@ import { IComanda, IListaDeComandasProps, IProdutoConsumido } from "../../types"
 import styles from "./styles.module.css"
 import { CardComanda } from "../../components/cardComanda"
 import estoque from "../../assets/images/estoque.png"
+import ativas from "../../assets/images/aberto-ativo.png"
+import abertas from "../../assets/images/aberto-ativo.png"
+import fechadas from "../../assets/images/fechado-inativo.png"
 
 export const ListaDeComandas = ({comandas,setComandas, setComandaSelecionada}:IListaDeComandasProps) => {
 
@@ -52,6 +55,16 @@ export const ListaDeComandas = ({comandas,setComandas, setComandaSelecionada}:IL
                 <div onClick={()=>setAbrirModal(true)} className="add">
                     <div>+</div>
                 </div>
+                <nav className={styles.nav__comandas}>
+                    <div className={styles.nav__comandas__btn}>
+                        <img className={styles.nav__comandas__img} src={abertas} alt="" />
+                        <p className={styles.comanda__aberta__txt}>Abertas</p>
+                    </div>
+                    <div className={styles.nav__comandas__btn}>
+                    <img className={styles.nav__comandas__img} src={fechadas} alt="" />
+                        <p className={styles.comanda__fechada__txt}>Fechadas</p>
+                    </div>
+                </nav>
             </main>
 
                        

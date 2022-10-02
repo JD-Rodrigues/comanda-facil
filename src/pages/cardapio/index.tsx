@@ -9,7 +9,9 @@ import styles from "./styles.module.css"
 
 export const Cardapio = ({produtos, comandaSelecionada, setComandas}:ICardapioProps) => {
     const [produtoSelecionado, setProdutoSelecionado] = useState<string | null>(null)
+
     const navigate = useNavigate()
+
     const adicionarProdutoNaComanda = ()=> {
         
 
