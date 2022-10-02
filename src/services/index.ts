@@ -114,7 +114,13 @@ function atualizarComanda(nomeDaComanda:string, nomeDoProduto:string, setComanda
 
 }
 
+function calcularTotalGastoEmComanda(comanda:IComanda) {
+  const total = comanda.consumo && comanda.consumo.reduce((acc, item) =>  acc + item.quantidade * item.valorUnit,0)
+
+  return total
+}
 
 
 
-export {salvarDados,carregarDados, adicionarComanda, cadastrarProduto, validacaoDePreco, mascaraDePreco, checarItemRepetido, atualizarComanda}
+
+export {salvarDados,carregarDados, adicionarComanda, cadastrarProduto, validacaoDePreco, mascaraDePreco, checarItemRepetido, atualizarComanda, calcularTotalGastoEmComanda}

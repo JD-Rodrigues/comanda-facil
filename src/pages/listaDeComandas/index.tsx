@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { Link } from "react-router-dom"
 import { Modal } from "../../components/modal"
-import { adicionarComanda, checarItemRepetido } from "../../services"
+import { adicionarComanda, calcularTotalGastoEmComanda, checarItemRepetido } from "../../services"
 import { IComanda, IListaDeComandasProps, IProdutoConsumido } from "../../types"
 import styles from "./styles.module.css"
 import { CardComanda } from "../../components/cardComanda"
@@ -12,7 +12,7 @@ export const ListaDeComandas = ({comandas,setComandas, setComandaSelecionada}:IL
     const [abrirModal, setAbrirModal] = useState(false)
 
     const comandasGrid = comandas && comandas.map(comanda =>{
-        let total = comanda.consumo && comanda.consumo.reduce((acc, item) =>  acc + item.quantidade * item.valorUnit,0)
+        let total = calcularTotalGastoEmComanda(comanda)
         return <CardComanda key={comanda.nome} nomeDaComanda={comanda.nome} soma={total} setComandaSelecionada={setComandaSelecionada}/>
     })
 

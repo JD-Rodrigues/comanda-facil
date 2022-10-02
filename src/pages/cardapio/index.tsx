@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { CardProdutoMenu } from "../../components/cardProdutoMenu"
 import { Modal } from "../../components/modal"
 import { atualizarComanda} from "../../services"
@@ -9,9 +9,13 @@ import styles from "./styles.module.css"
 
 export const Cardapio = ({produtos, comandaSelecionada, setComandas}:ICardapioProps) => {
     const [produtoSelecionado, setProdutoSelecionado] = useState<string | null>(null)
-
+    const navigate = useNavigate()
     const adicionarProdutoNaComanda = ()=> {
+        
+
         produtoSelecionado && setComandas && atualizarComanda(comandaSelecionada, produtoSelecionado, setComandas)
+        
+        navigate("/comanda")
     }
 
     useEffect(()=>{
@@ -26,13 +30,13 @@ export const Cardapio = ({produtos, comandaSelecionada, setComandas}:ICardapioPr
                 </nav>                
             </header>
             <main className="main">
-                <ul>
+                <ul className={styles.lista}>
                     {produtos && produtos.map(produto => 
                     <li 
                         key={produto.nome} 
                         onClick={()=>{
                             setProdutoSelecionado(produto.nome)
-                             adicionarProdutoNaComanda()
+                            adicionarProdutoNaComanda()
                         }
                     }>
                         <CardProdutoMenu 
