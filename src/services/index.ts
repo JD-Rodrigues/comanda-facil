@@ -74,7 +74,7 @@ const fecharComanda = (nomeDaComanda:string) => {
     if(comanda.nome === nomeDaComanda){
       comanda.aberta = false
     }
-  })
+})
 
   return comandas
 

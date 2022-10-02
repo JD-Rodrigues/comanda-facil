@@ -4,7 +4,9 @@ import { CardProdutoMenu } from "../../components/cardProdutoMenu"
 import { Modal } from "../../components/modal"
 import { atualizarComanda} from "../../services"
 import { ICardapioProps } from "../../types"
+import home from "../../assets/images/home.png"
 import styles from "./styles.module.css"
+
 
 
 export const Cardapio = ({produtos, comandaSelecionada, setComandas}:ICardapioProps) => {
@@ -27,7 +29,10 @@ export const Cardapio = ({produtos, comandaSelecionada, setComandas}:ICardapioPr
         <div className="container">
             <header className="header">
                 <p>Cardápio</p>
-                <nav className="menu">                
+                <nav id={styles.menu} className="menu">  
+                <Link to="/">
+                    <img src={home}/>        
+                </Link>              
                 </nav>                
             </header>
             <main className="main">

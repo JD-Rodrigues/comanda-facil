@@ -1,3 +1,16 @@
+.menu__list {
+  display: flex;
+  column-gap: 10px;
+}
+
+.menu__item {
+  width: 25px;
+}
+
+.menu__item img {
+  width: 100%;
+}
+
 .adicionar__cancelar__btn {
   display: flex;
   justify-content: space-around;
@@ -20,6 +33,7 @@
   height: 50px;
   display: flex;
   justify-content:center;
+  align-items: center;
   column-gap: 10px;
   color: var(--dark);
 }

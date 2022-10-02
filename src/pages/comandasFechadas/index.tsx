@@ -3,7 +3,7 @@ import { calcularTotalGastoEmComanda } from "../../services"
 import { IComandasFechadasProps, IListaDeComandasProps } from "../../types"
 import styles from "./styles.module.css"
 import { CardComanda } from "../../components/cardComanda"
-import estoque from "../../assets/images/estoque.png"
+import home from "../../assets/images/home.png"
 import abertas from "../../assets/images/aberto-inativo.png"
 import fechadas from "../../assets/images/fechado-ativo.png"
 
@@ -25,6 +25,11 @@ export const ComandasFechadas = ({comandas, setComandaSelecionada}:IComandasFech
                 <p>Comandas Fechadas</p>
                 <nav className="menu">
                     <ul className="menu__list">
+                        <Link to="/">
+                            <li className={styles.menu__item}>
+                                <img src={home}/>
+                            </li>
+                        </Link> 
                     </ul>                    
                 </nav>                
             </header>

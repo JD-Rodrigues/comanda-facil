@@ -6,7 +6,7 @@ import { IComanda, IListaDeComandasProps, IProdutoConsumido } from "../../types"
 import styles from "./styles.module.css"
 import { CardComanda } from "../../components/cardComanda"
 import estoque from "../../assets/images/estoque.png"
-import ativas from "../../assets/images/aberto-ativo.png"
+import add from "../../assets/images/add.png"
 import abertas from "../../assets/images/aberto-ativo.png"
 import fechadas from "../../assets/images/fechado-inativo.png"
 
@@ -44,9 +44,9 @@ export const ListaDeComandas = ({comandas,setComandas, setComandaSelecionada}:IL
             <header className="header">
                 <p>Comandas</p>
                 <nav className="menu">
-                    <ul className="menu__list">
+                    <ul className={styles.menu__list}>
                         <Link to="/estoque">
-                            <li className="menu__item"><img src={estoque} alt="Cadastrar produto" title="Cadastrar produto"></img></li>
+                            <li className={styles.menu__item}><img src={estoque} alt="Cadastrar produto" title="Cadastrar produto"></img></li>
                         </Link>
                     </ul>                    
                 </nav>                
@@ -62,7 +62,7 @@ export const ListaDeComandas = ({comandas,setComandas, setComandaSelecionada}:IL
                         <p className={styles.comanda__aberta__txt}>Abertas</p>
                     </div>
                     <div onClick={()=>setAbrirModal(true)} className="add">
-                        <div>+</div>
+                        <img src={add} />
                     </div>
                     <div onClick={()=>navigate("/comandas-fechadas")} className={styles.nav__comandas__btn} id={styles.comandas__fechadas}>
                     <img className={styles.nav__comandas__img} src={fechadas} alt="" />

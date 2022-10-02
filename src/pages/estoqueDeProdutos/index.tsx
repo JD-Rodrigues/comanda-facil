@@ -4,6 +4,8 @@ import { CardProdutoEstoque } from "../../components/cardProdutoEstoque"
 import { Modal } from "../../components/modal"
 import { cadastrarProduto, checarItemRepetido, mascaraDePreco, validacaoDePreco } from "../../services"
 import { IEstoqueDeProdutosProps } from "../../types"
+import home from "../../assets/images/home.png"
+import add from "../../assets/images/add.png"
 import styles from "./styles.module.css"
 
 
@@ -41,6 +43,11 @@ export const EstoqueDeProdutos = ({produtos, setProdutos}:IEstoqueDeProdutosProp
                 <p>Estoque</p>
                 <nav className="menu">
                     <ul className="menu__list">
+                        <Link to="/">
+                            <li className={styles.menu__item}>
+                                <img src={home}/>
+                            </li>
+                        </Link> 
                     </ul>                    
                 </nav>                
             </header>
@@ -49,8 +56,8 @@ export const EstoqueDeProdutos = ({produtos, setProdutos}:IEstoqueDeProdutosProp
                     {produtos && produtos.map(produto=> <CardProdutoEstoque key={produto.nome} nome={produto.nome} valor={produto.valorUnit}  />)}
                 </ul>
                 
-                <div className={styles.add__wrapper} onClick={()=>setAbrirModal(true)}>
-                    <div className="add">+</div>
+                <div className="add" id={styles.add__wrapper} onClick={()=>setAbrirModal(true)}>
+                    <img src={add} />
                 </div>
 
                 <Modal toggle={abrirModal} nomeDoModal="Novo Produto:">

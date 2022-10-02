@@ -1,3 +1,14 @@
+.menu__item {
+  width: 25px;
+  height: 100%;
+}
+
+.menu__item img {
+  width: 100%;
+}
+
+
+
 .adicionar__cancelar__btn {
   display: flex;
   justify-content: space-around;

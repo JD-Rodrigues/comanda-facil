@@ -4,9 +4,10 @@ import { CardProdutoDaComanda } from "../../components/cardProdutoDaComanda"
 import { Modal } from "../../components/modal"
 import { calcularTotalGastoEmComanda, carregarDados, fecharComanda, mascaraDePreco } from "../../services"
 import { IComanda, IComandaProps, IProdutoConsumido } from "../../types"
-import styles from "./styles.module.css"
 import pagar from "../../assets/images/pagar.png"
 import comida from "../../assets/images/food.png"
+import home from "../../assets/images/home.png"
+import styles from "./styles.module.css"
 
 
 
@@ -33,18 +34,30 @@ export const Comanda = ({comandaSelecionada, setComandas}:IComandaProps) => {
         <div className="container">
             <header className="header">
                 <h1>Comanda "{comandaSelecionada}"</h1>
-                <nav className="menu">
-                    <ul className="menu__list">                                      {
+                <nav>
+                    <ul className={styles.menu__list}>                                      {
                         estaComanda.aberta === true 
                             ? 
-                                <>
+                                <>   
                                     <Link to="/cardapio">
-                                    <li className="menu__item"><img src={comida} /></li>
+                                    <li className={styles.menu__item}><img src={comida} /></li>
                                     </Link>
-                                    <li className="menu__item" onClick={()=>setAbrirModal(true)}><img src={pagar}></img></li>
+                                    <li className={styles.menu__item} onClick={()=>setAbrirModal(true)}><img src={pagar}></img></li>
+                                    <Link to="/">
+                                    <li className={styles.menu__item}>
+                                        <img src={home}/>
+                                    </li>
+                                    </Link> 
                                 </>
                             :
+                            <>
                                 <p>Comanda fechada</p>
+                                <Link to="/">
+                                    <li className={styles.menu__item}>
+                                        <img src={home}/>
+                                    </li>
+                                </Link> 
+                            </>                                
                         }
 
                     </ul>                    

@@ -28,7 +28,7 @@
   background-color: whitesmoke;
   font-size: 12px;
 }
-
+/* 
 .menu {
   width: auto;
   height: 100%;
@@ -54,7 +54,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-}
+} */
 
 .add {
   width: 50px;
@@ -67,6 +67,10 @@
   font-size: 25px;
   background-color: var(--contrast);
   cursor: pointer;
+}
+
+.add img {
+  width: 70%;
 }
 
 
