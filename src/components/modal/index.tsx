@@ -12,13 +12,13 @@ export const Modal = ({nomeDoModal, children, toggle}:IModalProps) => {
     return (
         <dialog>
             <form className={styles.modal__form}>
-            <header className={styles.modal__form__header}>
-                <p>{nomeDoModal}</p>
-            </header>
-            <main className={styles.modal__content}>
-                {children}
-            </main>
-        </form>
+                <header className={styles.modal__form__header}>
+                    <p>{nomeDoModal}</p>
+                </header>
+                <main className={styles.modal__content}>
+                    {children}
+                </main>
+            </form>
         </dialog>        
     )
 }

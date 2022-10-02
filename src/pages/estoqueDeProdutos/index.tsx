@@ -61,9 +61,9 @@ export const EstoqueDeProdutos = ({produtos, setProdutos}:IEstoqueDeProdutosProp
                 </div>
 
                 <Modal toggle={abrirModal} nomeDoModal="Novo Produto:">
-                    <input type="text" id="novo__produto__nome" placeholder="Nome do produto"/>
-                    <input type="text" id="novo__produto__valor" onChange={mascaraDeValor} placeholder="Preço do produto"/>
-                    <div className={styles.adicionar__cancelar__btn}>
+                    <input className={styles.modal__input} type="text" id="novo__produto__nome" placeholder="Nome do produto"/>
+                    <input className={styles.modal__input} type="text" id="novo__produto__valor" onChange={mascaraDeValor} placeholder="Preço do produto"/>
+                    <div className={styles.adicionar__cancelar}>
                         <button onClick={(e)=>{
                             e.preventDefault()
                             setAbrirModal(false)

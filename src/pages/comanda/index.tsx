@@ -74,7 +74,7 @@ export const Comanda = ({comandaSelecionada, setComandas}:IComandaProps) => {
             </main>
 
             <Modal toggle={abrirModal} nomeDoModal="Fechar comanda?">
-                <div className={styles.adicionar__cancelar__btn}>
+                <div className={styles.fechar__comanda__btn}>
                     <button onClick={(e)=>{
                         e.preventDefault()
                         setAbrirModal(false)}

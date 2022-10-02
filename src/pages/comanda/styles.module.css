@@ -7,6 +7,7 @@
 .menu__item {
   width: 25px;
   height: 100%;
+  cursor: pointer;
 }
 
 .menu__item img {
@@ -21,6 +22,7 @@
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 0px 10px var(--dark);
+  font-size: 14px;
   font-weight: bold;
 }
 
@@ -30,4 +32,15 @@
   flex-direction: column;
   row-gap: 20px;
 }
+
+.fechar__comanda__btn {
+  display: flex;
+  column-gap: 10px;
+}
+
+.fechar__comanda__btn button {
+  color: var(--dark);
+  cursor: pointer;
+}
+
 

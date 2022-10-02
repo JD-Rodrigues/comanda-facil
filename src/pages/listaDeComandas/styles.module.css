@@ -16,6 +16,11 @@
   justify-content: space-around;
 }
 
+.adicionar__cancelar__btn button {
+  color: var(--dark);
+  cursor: pointer;
+}
+
 .cards__comandas {
   display: flex;
   flex-wrap: wrap;
@@ -57,4 +62,9 @@
 
 .comanda__fechada__txt {
   color: var(--dark-inactive);
+}
+
+.nome__comanda__input:focus {
+  outline: var(--dark-inactive) solid 1px;
+  outline-offset: -2px;
 }

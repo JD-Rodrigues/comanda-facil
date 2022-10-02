@@ -7,10 +7,16 @@
   width: 100%;
 }
 
-.adicionar__cancelar__btn {
+.adicionar__cancelar {
   display: flex;
   justify-content: space-around;
 }
+
+.adicionar__cancelar button {
+  color: var(--dark);
+  cursor: pointer;
+}
+
 
 #lista {
   width: 100%;
@@ -26,4 +32,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.modal__input:focus {
+  outline: var(--dark-inactive) solid 1px;
+  outline-offset: -2px;
 }

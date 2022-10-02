@@ -73,7 +73,7 @@ export const ListaDeComandas = ({comandas,setComandas, setComandaSelecionada}:IL
 
                        
             <Modal toggle={abrirModal} nomeDoModal="Nome da comanda:">
-                <input type="text" id="nova__comanda"/>
+                <input type="text" className={styles.nome__comanda__input}/>
                 <div className={styles.adicionar__cancelar__btn}>
                     <button onClick={(e)=>{
                         e.preventDefault()
