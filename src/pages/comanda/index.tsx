@@ -10,7 +10,7 @@ export const Comanda = ({comandaSelecionada}:IComandaProps) => {
     const [estaComanda] = listaDeComandas.filter((comanda:IComanda)=>comanda.nome === comandaSelecionada)
 
     const total = String(calcularTotalGastoEmComanda(estaComanda))
-    const totalAPagar = mascaraDePreco(total)
+    const totalAPagar = total === "0" ? mascaraDePreco("000") : mascaraDePreco(total)
 
     return(
         <div className="container">

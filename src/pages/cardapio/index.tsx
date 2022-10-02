@@ -14,8 +14,7 @@ export const Cardapio = ({produtos, comandaSelecionada, setComandas}:ICardapioPr
         
 
         produtoSelecionado && setComandas && atualizarComanda(comandaSelecionada, produtoSelecionado, setComandas)
-        
-        navigate("/comanda")
+        navigate(-1)
     }
 
     useEffect(()=>{
