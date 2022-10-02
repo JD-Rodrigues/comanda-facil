@@ -14,7 +14,7 @@ export const CardComanda = ({nomeDaComanda, soma, setComandaSelecionada}:ICardCo
 
   return(
     <li className={styles.card__wrapper} onClick={irPraComanda}>
-      <p>{nomeDaComanda}</p>
+      <p className={styles.nome__da__comanda}>{nomeDaComanda}</p>
       <p>R$ {total}</p>
     </li>
   )

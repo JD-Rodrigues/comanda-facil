@@ -25,8 +25,8 @@ export const ListaDeComandas = ({comandas,setComandas, setComandaSelecionada}:IL
     const adicionarNovaComanda = (e:React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault()
 
-        const campoNomeDaComanda = document.querySelector("#nova__comanda") as HTMLInputElement
-
+        const campoNomeDaComanda = document.querySelector("#input__comanda__nome") as HTMLInputElement
+        console.log(campoNomeDaComanda)
         if(checarItemRepetido(campoNomeDaComanda.value,comandas)) {
             campoNomeDaComanda.value = ""
             alert("Ops! Já existe uma comanda com esse nome!")
@@ -73,7 +73,7 @@ export const ListaDeComandas = ({comandas,setComandas, setComandaSelecionada}:IL
 
                        
             <Modal toggle={abrirModal} nomeDoModal="Nome da comanda:">
-                <input type="text" className={styles.nome__comanda__input}/>
+                <input type="text" id="input__comanda__nome" className={styles.nome__comanda__input}/>
                 <div className={styles.adicionar__cancelar__btn}>
                     <button onClick={(e)=>{
                         e.preventDefault()
