@@ -1,7 +1,8 @@
 {
   "rewrites": [
-    { "source": "/produtos", "destination": "/index.html" },
+    { "source": "/estoque", "destination": "/index.html" },
     { "source": "/comanda", "destination": "/index.html" },
     { "source": "/fechar-comanda", "destination": "/index.html" }
+    { "source": "/cardapio", "destination": "/index.html" },
   ]
 }
