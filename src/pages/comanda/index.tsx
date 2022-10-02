@@ -6,6 +6,7 @@ import { calcularTotalGastoEmComanda, carregarDados, fecharComanda, mascaraDePre
 import { IComanda, IComandaProps, IProdutoConsumido } from "../../types"
 import styles from "./styles.module.css"
 import pagar from "../../assets/images/pagar.png"
+import comida from "../../assets/images/food.png"
 
 
 
@@ -33,13 +34,19 @@ export const Comanda = ({comandaSelecionada, setComandas}:IComandaProps) => {
             <header className="header">
                 <h1>Comanda "{comandaSelecionada}"</h1>
                 <nav className="menu">
-                    <ul className="menu__list">
-                        <Link to="/cardapio">
-                            <li className="menu__item"></li>
-                        </Link>
-                                                
-                        <li className="menu__item" onClick={()=>setAbrirModal(true)}><img src={pagar}></img></li>
-                        
+                    <ul className="menu__list">                                      {
+                        estaComanda.aberta === true 
+                            ? 
+                                <>
+                                    <Link to="/cardapio">
+                                    <li className="menu__item"><img src={comida} /></li>
+                                    </Link>
+                                    <li className="menu__item" onClick={()=>setAbrirModal(true)}><img src={pagar}></img></li>
+                                </>
+                            :
+                                <p>Comanda fechada</p>
+                        }
+
                     </ul>                    
                 </nav>                
             </header>

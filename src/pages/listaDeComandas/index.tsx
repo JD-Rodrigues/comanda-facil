@@ -55,13 +55,14 @@ export const ListaDeComandas = ({comandas,setComandas, setComandaSelecionada}:IL
                 <ul className={styles.cards__comandas}>
                     {comandasGrid}
                 </ul>
-                <div onClick={()=>setAbrirModal(true)} className="add">
-                    <div>+</div>
-                </div>
+                
                 <nav className={styles.nav__comandas}>
                     <div className={styles.nav__comandas__btn}>
                         <img className={styles.nav__comandas__img} src={abertas} alt="" />
                         <p className={styles.comanda__aberta__txt}>Abertas</p>
+                    </div>
+                    <div onClick={()=>setAbrirModal(true)} className="add">
+                        <div>+</div>
                     </div>
                     <div onClick={()=>navigate("/comandas-fechadas")} className={styles.nav__comandas__btn} id={styles.comandas__fechadas}>
                     <img className={styles.nav__comandas__img} src={fechadas} alt="" />

@@ -19,8 +19,8 @@
   min-width: 70vw; 
   height: 50px;
   display: flex;
-  justify-content:space-around;
-  column-gap: 20px;
+  justify-content:center;
+  column-gap: 10px;
   color: var(--dark);
 }
 

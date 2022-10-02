@@ -10,3 +10,8 @@
   row-gap: 10px;
   flex-wrap: wrap;
 }
+
+.add__wrapper {
+  position: fixed;
+  top: 80vh;
+}

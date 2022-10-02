@@ -49,8 +49,8 @@ export const EstoqueDeProdutos = ({produtos, setProdutos}:IEstoqueDeProdutosProp
                     {produtos && produtos.map(produto=> <CardProdutoEstoque key={produto.nome} nome={produto.nome} valor={produto.valorUnit}  />)}
                 </ul>
                 
-                <div className="add" onClick={()=>setAbrirModal(true)}>
-                    <div>+</div>
+                <div className={styles.add__wrapper} onClick={()=>setAbrirModal(true)}>
+                    <div className="add">+</div>
                 </div>
 
                 <Modal toggle={abrirModal} nomeDoModal="Novo Produto:">

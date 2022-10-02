@@ -25,9 +25,6 @@ export const ComandasFechadas = ({comandas, setComandaSelecionada}:IComandasFech
                 <p>Comandas Fechadas</p>
                 <nav className="menu">
                     <ul className="menu__list">
-                        <Link to="/estoque">
-                            <li className="menu__item"><img className={styles.icone__estoque} src={estoque} alt="Cadastrar produto" title="Cadastrar produto"></img></li>
-                        </Link>
                     </ul>                    
                 </nav>                
             </header>
