@@ -16,8 +16,10 @@ export const ListaDeComandas = ({comandas,setComandas, setComandaSelecionada}:IL
     const navigate = useNavigate()
 
     const comandasGrid = comandas && comandas.map(comanda =>{
-        let total = calcularTotalGastoEmComanda(comanda)
-        return <CardComanda key={comanda.nome} nomeDaComanda={comanda.nome} soma={total} setComandaSelecionada={setComandaSelecionada}/>
+        if(comanda.aberta) {
+            let total = calcularTotalGastoEmComanda(comanda)
+            return <CardComanda key={comanda.nome} nomeDaComanda={comanda.nome} soma={total} setComandaSelecionada={setComandaSelecionada}/>
+        }
     })
 
     const adicionarNovaComanda = (e:React.MouseEvent<HTMLButtonElement>) => {
