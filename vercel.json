@@ -2,7 +2,7 @@
   "rewrites": [
     { "source": "/estoque", "destination": "/index.html" },
     { "source": "/comanda", "destination": "/index.html" },
-    { "source": "/fechar-comanda", "destination": "/index.html" }
-    { "source": "/cardapio", "destination": "/index.html" },
+    { "source": "/fechar-comanda", "destination": "/index.html" },
+    { "source": "/cardapio", "destination": "/index.html" }
   ]
 }
